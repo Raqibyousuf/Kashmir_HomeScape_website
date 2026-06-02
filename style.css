@@ -1,6 +1,7 @@
 /* Base Reset & Modern Typography */
 * { box-sizing: border-box; margin: 0; padding: 0; }
 html { scroll-behavior: smooth; }
+
 /* Deep charcoal background with off-white text for high-end feel */
 body { font-family: 'Outfit', sans-serif; color: #d1d1d1; background-color: #0a0a0c; line-height: 1.6; overflow-x: hidden; }
 
@@ -19,9 +20,13 @@ header {
     z-index: 1000; 
     border-bottom: 1px solid rgba(255,255,255,0.05);
 }
+
+/* Logo Image & Text Layout */
 .logo { display: flex; align-items: center; gap: 12px; text-decoration: none; }
 .logo img { max-height: 40px; width: auto; object-fit: contain; border-radius: 4px; }
-.logo span { font-weight: 700; font-size: 1.5rem; letter-spacing: -0.5px; color: #ffffff; }nav a { margin-left: 30px; text-decoration: none; color: #888888; font-size: 1rem; font-weight: 500; transition: color 0.3s ease; }
+.logo span { font-weight: 700; font-size: 1.5rem; letter-spacing: -0.5px; color: #ffffff; }
+
+nav a { margin-left: 30px; text-decoration: none; color: #888888; font-size: 1rem; font-weight: 500; transition: color 0.3s ease; }
 nav a:hover { color: #d4af37; } /* Luxury Champagne Gold */
 
 /* Moody Premium Hero Section */
@@ -52,7 +57,7 @@ nav a:hover { color: #d4af37; } /* Luxury Champagne Gold */
     width: 100%; 
     height: 600px; 
     background-color: #111; 
-    border-radius: 8px; /* Sharper corners for modern luxury */
+    border-radius: 8px; 
     box-shadow: 0 20px 50px rgba(0,0,0,0.5); 
     overflow: hidden;
     cursor: grab;
@@ -61,7 +66,8 @@ nav a:hover { color: #d4af37; } /* Luxury Champagne Gold */
 #panorama-viewer:active { cursor: grabbing; }
 .viewer-hint { font-size: 0.9rem; color: #666; margin-top: 15px; text-align: center; font-weight: 300; letter-spacing: 1px; }
 
-/* 1. Make the cards flex containers so they span equal heights */
+/* Interactive Product Cards */
+.catalog-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 40px; }
 .product-card { 
     background: #141416; 
     border: 1px solid rgba(255,255,255,0.03);
@@ -69,79 +75,90 @@ nav a:hover { color: #d4af37; } /* Luxury Champagne Gold */
     overflow: hidden; 
     box-shadow: 0 10px 30px rgba(0,0,0,0.3);
     transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
-    display: flex;
-    flex-direction: column;
-    height: 100%; /* Keeps all cards uniform in height */
+}
+.product-card:hover { 
+    transform: translateY(-10px); 
+    border-color: rgba(212, 175, 55, 0.3);
+    box-shadow: 0 20px 40px rgba(0,0,0,0.6); 
 }
 
-/* 2. Make the image much larger in length (height increased from 280px to 380px) */
-.product-swiper { 
+/* Product Swiper Image Settings (Taller image, no stretching) */
+.product-swiper { width: 100%; height: 340px; }
+.swiper-slide { 
+    background-color: #1a1a1c; 
+    overflow: hidden; 
+    display: flex; 
+    align-items: center; 
+    justify-content: center; 
+    height: 100%; 
+}
+.swiper-slide img { 
     width: 100%; 
-    height: 380px; 
-}
-
-/* 3. Turn the info area into a flexbox to compress the gray space */
-.product-info { 
-    padding: 25px; 
-    position: relative; 
-    z-index: 2; 
-    background: #141416; 
-    border-top: 1px solid rgba(255,255,255,0.02); 
-    display: flex;
-    flex-direction: column;
-    flex-grow: 1; /* Makes this area dynamically fill remaining space */
-}
-
-/* 4. Push the button to the absolute bottom of the card */
-.inquire-btn { 
-    display: inline-block; 
-    width: 100%; 
-    text-align: center; 
-    padding: 14px; 
-    background: rgba(255,255,255,0.03); 
-    color: #ffffff; 
-    border: 1px solid rgba(255,255,255,0.1); 
-    text-decoration: none; 
-    border-radius: 4px; 
-    font-size: 0.9rem; 
-    font-weight: 500; 
-    letter-spacing: 1px; 
-    transition: all 0.3s ease; 
-    text-transform: uppercase; 
-    margin-top: auto; /* THIS is the magic line that forces it to the bottom */
-}
-
-/* Product Swiper Settings */
-.product-swiper { width: 100%; height: 280px; }
-.swiper-slide { background-color: #1a1a1c; overflow: hidden; display: flex; align-items: center; justify-content: center; }
-.swiper-slide img { width: 100%; height: 100%; object-fit: cover; } /* This ensures your images fill the box perfectly */
+    height: 100%; 
+    object-fit: cover; 
+    cursor: zoom-in; /* Cursor for the lightbox pop-up */
+} 
 
 /* Luxury Champagne Gold Pagination Dots */
 .swiper-pagination-bullet { background: #ffffff; opacity: 0.3; transition: all 0.3s ease; }
 .swiper-pagination-bullet-active { background: #d4af37; opacity: 1; transform: scale(1.2); }
 
-/* Product Info Text & Buttons */
-.product-info { padding: 30px; position: relative; z-index: 2; background: #141416; border-top: 1px solid rgba(255,255,255,0.02); }
+/* Product Info Text & Buttons (Smaller gray area) */
+.product-info { 
+    padding: 20px; 
+    position: relative; 
+    z-index: 2; 
+    background: #141416; 
+    border-top: 1px solid rgba(255,255,255,0.02); 
+}
 .product-category { font-size: 0.75rem; text-transform: uppercase; color: #d4af37; font-weight: 700; letter-spacing: 2px; margin-bottom: 10px; }
-.product-title { font-weight: 600; font-size: 1.3rem; margin-bottom: 25px; color: #ffffff; }
+.product-title { font-weight: 600; font-size: 1.3rem; margin-bottom: 15px; color: #ffffff; }
 .inquire-btn { display: inline-block; width: 100%; text-align: center; padding: 14px; background: rgba(255,255,255,0.03); color: #ffffff; border: 1px solid rgba(255,255,255,0.1); text-decoration: none; border-radius: 4px; font-size: 0.9rem; font-weight: 500; letter-spacing: 1px; transition: all 0.3s ease; text-transform: uppercase; }
 .inquire-btn:hover { background: #ffffff; color: #000000; border-color: #ffffff; }
+
+/* Horizontal Panning Catalog Styles */
+.catalog-pan-container {
+    width: 100%;
+    overflow-x: auto; 
+    overflow-y: hidden;
+    border-radius: 8px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+    border: 1px solid rgba(255,255,255,0.05);
+    cursor: grab;
+    scrollbar-width: none; /* Hide scrollbar for a clean look */
+    -ms-overflow-style: none;
+}
+.catalog-pan-container::-webkit-scrollbar { display: none; }
+.catalog-pan-container:active { cursor: grabbing; }
+
+.pan-image {
+    height: 600px; 
+    width: auto; 
+    max-width: none; 
+    display: block;
+}
 
 /* Floating WhatsApp Button */
 .whatsapp-float { position: fixed; bottom: 30px; right: 30px; background-color: #25D366; color: white; border-radius: 50px; padding: 15px 25px; font-weight: 600; font-size: 1rem; text-decoration: none; box-shadow: 0 10px 30px rgba(37, 211, 102, 0.2); z-index: 1000; transition: all 0.3s ease; }
 .whatsapp-float:hover { transform: translateY(-5px) scale(1.05); box-shadow: 0 15px 35px rgba(37, 211, 102, 0.4); }
 
-/* Mobile Responsiveness */
-@media (max-width: 768px) {
-    .hero h1 { font-size: 2.2rem; }
-    #panorama-viewer { height: 400px; }
-    header { padding: 15px 5%; }
-    .hero { height: 75vh; }
+/* Custom Image Footer Styling */
+.custom-footer {
+    width: 100%;
+    margin-top: 40px;
+    background-color: #0a0a0c; 
+    display: flex;
+    justify-content: center;
+    border-top: 1px solid rgba(255,255,255,0.05);
+}
+.custom-footer img {
+    width: 100%;
+    max-width: 1400px; 
+    height: auto;
+    display: block;
 }
 
 /* Image Lightbox Modal Styling */
-.swiper-slide img { cursor: zoom-in; } /* Shows a magnifying glass cursor */
-
 .modal {
     display: none; 
     position: fixed; 
@@ -185,31 +202,11 @@ nav a:hover { color: #d4af37; } /* Luxury Champagne Gold */
 }
 .close-modal:hover { color: #d4af37; }
 
-/* Horizontal Panning Catalog Styles */
-.catalog-pan-container {
-    width: 100%;
-    overflow-x: auto; 
-    overflow-y: hidden;
-    border-radius: 8px;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.3);
-    border: 1px solid rgba(255,255,255,0.05);
-    cursor: grab;
-    /* Hide scrollbar for a clean, app-like look */
-    scrollbar-width: none; /* Firefox */
-    -ms-overflow-style: none;  /* IE and Edge */
-}
-.catalog-pan-container::-webkit-scrollbar {
-    display: none; /* Chrome, Safari */
-}
-.catalog-pan-container:active { cursor: grabbing; }
-
-.pan-image {
-    height: 600px; /* Forces the image to be tall and readable */
-    width: auto; /* Lets the width stretch endlessly to the right */
-    max-width: none; 
-    display: block;
-}
-
+/* Mobile Responsiveness */
 @media (max-width: 768px) {
-    .pan-image { height: 450px; } /* Slightly smaller for mobile phones */
+    .hero h1 { font-size: 2.2rem; }
+    #panorama-viewer { height: 400px; }
+    header { padding: 15px 5%; }
+    .hero { height: 75vh; }
+    .pan-image { height: 450px; } /* Smaller panning image for phones */
 }
