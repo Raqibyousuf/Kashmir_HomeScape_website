@@ -58,5 +58,35 @@ document.addEventListener("DOMContentLoaded", function() {
             closeModal();
         }
     });
+
+    // 5. Drag-to-Scroll logic for the Full Catalog Image (for Desktop)
+    const panContainer = document.querySelector('.catalog-pan-container');
+    let isDown = false;
+    let startX;
+    let scrollLeft;
+
+    if (panContainer) {
+        panContainer.addEventListener('mousedown', (e) => {
+            isDown = true;
+            panContainer.style.cursor = 'grabbing';
+            startX = e.pageX - panContainer.offsetLeft;
+            scrollLeft = panContainer.scrollLeft;
+        });
+        panContainer.addEventListener('mouseleave', () => {
+            isDown = false;
+            panContainer.style.cursor = 'grab';
+        });
+        panContainer.addEventListener('mouseup', () => {
+            isDown = false;
+            panContainer.style.cursor = 'grab';
+        });
+        panContainer.addEventListener('mousemove', (e) => {
+            if (!isDown) return;
+            e.preventDefault();
+            const x = e.pageX - panContainer.offsetLeft;
+            const walk = (x - startX) * 1.5; // Drag speed multiplier
+            panContainer.scrollLeft = scrollLeft - walk;
+        });
+    }
     
 });

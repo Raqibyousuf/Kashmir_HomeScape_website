@@ -61,8 +61,7 @@ nav a:hover { color: #d4af37; } /* Luxury Champagne Gold */
 #panorama-viewer:active { cursor: grabbing; }
 .viewer-hint { font-size: 0.9rem; color: #666; margin-top: 15px; text-align: center; font-weight: 300; letter-spacing: 1px; }
 
-/* Interactive Product Cards & Swiper Styling */
-.catalog-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 40px; }
+/* 1. Make the cards flex containers so they span equal heights */
 .product-card { 
     background: #141416; 
     border: 1px solid rgba(255,255,255,0.03);
@@ -70,11 +69,46 @@ nav a:hover { color: #d4af37; } /* Luxury Champagne Gold */
     overflow: hidden; 
     box-shadow: 0 10px 30px rgba(0,0,0,0.3);
     transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+    display: flex;
+    flex-direction: column;
+    height: 100%; /* Keeps all cards uniform in height */
 }
-.product-card:hover { 
-    transform: translateY(-10px); 
-    border-color: rgba(212, 175, 55, 0.3);
-    box-shadow: 0 20px 40px rgba(0,0,0,0.6); 
+
+/* 2. Make the image much larger in length (height increased from 280px to 380px) */
+.product-swiper { 
+    width: 100%; 
+    height: 380px; 
+}
+
+/* 3. Turn the info area into a flexbox to compress the gray space */
+.product-info { 
+    padding: 25px; 
+    position: relative; 
+    z-index: 2; 
+    background: #141416; 
+    border-top: 1px solid rgba(255,255,255,0.02); 
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1; /* Makes this area dynamically fill remaining space */
+}
+
+/* 4. Push the button to the absolute bottom of the card */
+.inquire-btn { 
+    display: inline-block; 
+    width: 100%; 
+    text-align: center; 
+    padding: 14px; 
+    background: rgba(255,255,255,0.03); 
+    color: #ffffff; 
+    border: 1px solid rgba(255,255,255,0.1); 
+    text-decoration: none; 
+    border-radius: 4px; 
+    font-size: 0.9rem; 
+    font-weight: 500; 
+    letter-spacing: 1px; 
+    transition: all 0.3s ease; 
+    text-transform: uppercase; 
+    margin-top: auto; /* THIS is the magic line that forces it to the bottom */
 }
 
 /* Product Swiper Settings */
@@ -150,3 +184,32 @@ nav a:hover { color: #d4af37; } /* Luxury Champagne Gold */
     transition: color 0.3s ease;
 }
 .close-modal:hover { color: #d4af37; }
+
+/* Horizontal Panning Catalog Styles */
+.catalog-pan-container {
+    width: 100%;
+    overflow-x: auto; 
+    overflow-y: hidden;
+    border-radius: 8px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+    border: 1px solid rgba(255,255,255,0.05);
+    cursor: grab;
+    /* Hide scrollbar for a clean, app-like look */
+    scrollbar-width: none; /* Firefox */
+    -ms-overflow-style: none;  /* IE and Edge */
+}
+.catalog-pan-container::-webkit-scrollbar {
+    display: none; /* Chrome, Safari */
+}
+.catalog-pan-container:active { cursor: grabbing; }
+
+.pan-image {
+    height: 600px; /* Forces the image to be tall and readable */
+    width: auto; /* Lets the width stretch endlessly to the right */
+    max-width: none; 
+    display: block;
+}
+
+@media (max-width: 768px) {
+    .pan-image { height: 450px; } /* Slightly smaller for mobile phones */
+}
