@@ -1,0 +1,41 @@
+/* Base Reset & Typography */
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body { font-family: 'Inter', sans-serif; color: #333; background-color: #fcfcfc; line-height: 1.6; }
+
+/* Navigation */
+header { background: #ffffff; padding: 20px 5%; display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid #eee; position: sticky; top: 0; z-index: 100; }
+.logo { font-weight: 700; font-size: 1.4rem; letter-spacing: -0.5px; color: #111; }
+nav a { margin-left: 20px; text-decoration: none; color: #555; font-size: 0.95rem; font-weight: 400; transition: color 0.2s; }
+nav a:hover { color: #111; }
+
+/* Hero Section */
+.hero { padding: 80px 5%; text-align: center; max-width: 800px; margin: 0 auto; }
+.hero h1 { font-size: 2.8rem; font-weight: 700; color: #111; margin-bottom: 15px; letter-spacing: -1px; }
+.hero p { font-size: 1.1rem; color: #666; margin-bottom: 30px; }
+
+/* 3D Showcase Section */
+.showcase-container { padding: 0 5% 60px 5%; max-width: 1200px; margin: 0 auto; }
+.section-title { font-size: 1.8rem; font-weight: 600; margin-bottom: 20px; color: #111; border-left: 4px solid #111; padding-left: 15px; }
+#panorama-viewer { width: 100%; height: 500px; background-color: #eee; border-radius: 8px; box-shadow: 0 4px 20px rgba(0,0,0,0.05); }
+.viewer-hint { font-size: 0.85rem; color: #888; margin-top: 10px; text-align: center; }
+
+/* Product Catalog Grid */
+.catalog-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 30px; margin-top: 20px; }
+.product-card { background: #fff; border: 1px solid #eee; border-radius: 8px; overflow: hidden; transition: transform 0.2s; }
+.product-card:hover { transform: translateY(-4px); }
+.product-image { width: 100%; height: 240px; background-color: #f0f0f0; display: flex; align-items: center; justify-content: center; color: #999; font-size: 0.9rem; object-fit: cover; }
+.product-info { padding: 20px; }
+.product-title { font-weight: 600; font-size: 1.1rem; margin-bottom: 5px; }
+.product-category { font-size: 0.8rem; text-transform: uppercase; color: #888; letter-spacing: 1px; margin-bottom: 10px; }
+
+/* Buttons */
+.inquire-btn { display: inline-block; width: 100%; text-align: center; padding: 10px; background: #111; color: #fff; text-decoration: none; border-radius: 4px; font-size: 0.9rem; font-weight: 600; margin-top: 15px; transition: background 0.2s; }
+.inquire-btn:hover { background: #333; }
+.whatsapp-float { position: fixed; bottom: 30px; right: 30px; background-color: #25D366; color: white; border-radius: 50px; padding: 15px 25px; font-weight: 600; font-size: 0.95rem; text-decoration: none; box-shadow: 0 4px 15px rgba(0,0,0,0.15); z-index: 1000; transition: transform 0.2s; }
+.whatsapp-float:hover { transform: scale(1.05); }
+
+/* Mobile Responsiveness */
+@media (max-width: 768px) {
+    .hero h1 { font-size: 2rem; }
+    #panorama-viewer { height: 350px; }
+}
