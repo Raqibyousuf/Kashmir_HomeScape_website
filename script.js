@@ -1,15 +1,16 @@
-// Wait for the HTML to fully load before starting the 3D viewer
 document.addEventListener("DOMContentLoaded", function() {
     
+    // Initialize 3D Viewer
     pannellum.viewer('panorama-viewer', {
         "type": "equirectangular",
-        
-        // This is a sample image. Once you upload your 3D render to the assets folder,
-        // change this URL to "assets/your-render-name.jpg"
         "panorama": "assets/mainpic.jpg",
-        
         "autoLoad": true,
         "compass": false
     });
 
+    // Initialize Animate On Scroll (AOS)
+    AOS.init({
+        once: true, // Whether animation should happen only once - while scrolling down
+        offset: 50, // Offset (in px) from the original trigger point
+    });
 });
