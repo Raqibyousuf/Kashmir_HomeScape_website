@@ -5,32 +5,32 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Kashmir Home Scape | Premium Interior Design</title>
     
-    <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;700&display=swap" rel="stylesheet">
     
-    <!-- Pannellum 360 Viewer CSS -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/pannellum@2.5.6/build/pannellum.css"/>
-    
-    <!-- AOS Animation Library -->
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css" />
 
-    <!-- Your Custom CSS File -->
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-    <!-- Glassmorphism Header -->
+ <!-- Dark Glassmorphism Header -->
     <header>
-        <div class="logo">Kashmir Home Scape.</div>
+        <!-- Logo image and text side-by-side -->
+        <a href="#" class="logo">
+            <img src="assets/kashmir_logo.jpg" alt="Logo">
+            <span>Kashmir Home Scape.</span>
+        </a>
         <nav>
             <a href="#designs">3D Tours</a>
-            <a href="#catalog">Sourced Products</a>
+            <a href="#catalog">Finished Spaces</a>
+            <a href="#materials">Materials & Craft</a>
         </nav>
     </header>
-
-    <!-- Hero Section -->
     <section class="hero">
         <div class="hero-content" data-aos="fade-up" data-aos-duration="1200">
             <h1>Immersive Interior Environments</h1>
@@ -39,20 +39,25 @@
         </div>
     </section>
 
-    <!-- 360 Viewer Section -->
     <section class="showcase-container" id="designs" data-aos="fade-up" data-aos-duration="1000">
         <h2 class="section-title">Interactive Walkthrough: Modular Kitchen</h2>
         <div id="panorama-viewer"></div>
         <p class="viewer-hint">↔ Click and drag to look completely around the room.</p>
     </section>
 
-    <!-- Product Catalog -->
     <section class="showcase-container" id="catalog">
         <h2 class="section-title" data-aos="fade-right">Our Sourced Collection</h2>
         <div class="catalog-grid">
             
             <div class="product-card" data-aos="fade-up" data-aos-delay="100">
-                <div class="product-image">[ Product Photo 1 ]</div>
+                <div class="swiper product-swiper">
+                    <div class="swiper-wrapper">
+                        <div class="swiper-slide"><img src="assets/cab_1.jpg" alt="Kitchen Cabinet Style 1"></div>
+                        <div class="swiper-slide"><img src="assets/cab_2.jpg" alt="Kitchen Cabinet Style 2"></div>
+                        <div class="swiper-slide"><img src="assets/cab_3.jpg" alt="Kitchen Cabinet Style 3"></div>
+                    </div>
+                    <div class="swiper-pagination"></div>
+                </div>
                 <div class="product-info">
                     <div class="product-category">Kitchen Cabinets</div>
                     <div class="product-title">Matte Charcoal Profiles</div>
@@ -61,34 +66,115 @@
             </div>
 
             <div class="product-card" data-aos="fade-up" data-aos-delay="200">
-                <div class="product-image">[ Product Photo 2 ]</div>
+                <div class="swiper product-swiper">
+                    <div class="swiper-wrapper">
+                        <div class="swiper-slide"><img src="assets/lighting_1.jpg" alt="Lighting Option 1"></div>
+                        <div class="swiper-slide"><img src="assets/lighting_2.jpg" alt="Lighting Option 2"></div>
+                        <div class="swiper-slide"><img src="assets/lighting_3.jpg" alt="Lighting Option 3"></div>
+                    </div>
+                    <div class="swiper-pagination"></div>
+                </div>
                 <div class="product-info">
                     <div class="product-category">Lighting</div>
-                    <div class="product-title">Minimalist Island Pendant</div>
-                    <a href="https://wa.me/919876543210?text=I'm%20interested%20in%20the%20Pendant%20Light." target="_blank" class="inquire-btn">Inquire via WhatsApp</a>
+                    <div class="product-title">Minimalist Pendants & Fixtures</div>
+                    <a href="https://wa.me/919876543210?text=I'm%20interested%20in%20your%20Lighting%20fixtures." target="_blank" class="inquire-btn">Inquire via WhatsApp</a>
                 </div>
             </div>
 
             <div class="product-card" data-aos="fade-up" data-aos-delay="300">
-                <div class="product-image">[ Product Photo 3 ]</div>
+                <div class="swiper product-swiper">
+                    <div class="swiper-wrapper">
+                        <div class="swiper-slide"><img src="assets/bedroom_1.jpg" alt="Bedroom Design 1"></div>
+                        <div class="swiper-slide"><img src="assets/bedroom_2.jpg" alt="Bedroom Design 2"></div>
+                        <div class="swiper-slide"><img src="assets/bedroom_3.jpg" alt="Bedroom Design 3"></div>
+                    </div>
+                    <div class="swiper-pagination"></div>
+                </div>
                 <div class="product-info">
                     <div class="product-category">Bedrooms</div>
-                    <div class="product-title">Fluted Oak Wall Panels</div>
-                    <a href="https://wa.me/919876543210?text=I'm%20interested%20in%20the%20Fluted%20Oak%20Panels." target="_blank" class="inquire-btn">Inquire via WhatsApp</a>
+                    <div class="product-title">Luxury Bedroom Fittings</div>
+                    <a href="https://wa.me/919876543210?text=I'm%20interested%20in%20your%20Bedroom%20fittings." target="_blank" class="inquire-btn">Inquire via WhatsApp</a>
                 </div>
             </div>
 
         </div>
     </section>
 
-    <!-- Floating WhatsApp Button -->
+    <section class="showcase-container" id="materials">
+        <h2 class="section-title" data-aos="fade-right">Premium Materials & Craftsmanship</h2>
+        <div class="catalog-grid">
+            
+            <div class="product-card" data-aos="fade-up" data-aos-delay="100">
+                <div class="swiper product-swiper">
+                    <div class="swiper-wrapper">
+                        <div class="swiper-slide"><img src="assets/product_1.jpg" alt="Charcoal Panel"></div>
+                    </div>
+                    <div class="swiper-pagination"></div>
+                </div>
+                <div class="product-info">
+                    <div class="product-category">Wall Treatments</div>
+                    <div class="product-title">Charcoal & PVC Louvers</div>
+                    <a href="https://wa.me/919876543210?text=I'm%20interested%20in%20your%20Charcoal%20and%20PVC%20wall%20panels." target="_blank" class="inquire-btn">Inquire via WhatsApp</a>
+                </div>
+            </div>
+
+            <div class="product-card" data-aos="fade-up" data-aos-delay="200">
+                <div class="swiper product-swiper">
+                    <div class="swiper-wrapper">
+                        <div class="swiper-slide"><img src="assets/product_2.jpg" alt="Fluted Panel"></div>
+                    </div>
+                    <div class="swiper-pagination"></div>
+                </div>
+                <div class="product-info">
+                    <div class="product-category">Architectural Details</div>
+                    <div class="product-title">Premium Fluted Panels</div>
+                    <a href="https://wa.me/919876543210?text=I'm%20interested%20in%20your%20Fluted%20Panels." target="_blank" class="inquire-btn">Inquire via WhatsApp</a>
+                </div>
+            </div>
+
+            <div class="product-card" data-aos="fade-up" data-aos-delay="300">
+                <div class="swiper product-swiper">
+                    <div class="swiper-wrapper">
+                        <div class="swiper-slide"><img src="assets/product_3.jpg" alt="CNC Wood Carving"></div>
+                    </div>
+                    <div class="swiper-pagination"></div>
+                </div>
+                <div class="product-info">
+                    <div class="product-category">Custom Woodwork</div>
+                    <div class="product-title">Precision CNC Carving</div>
+                    <a href="https://wa.me/919876543210?text=I'm%20interested%20in%20custom%20CNC%20carving%20services." target="_blank" class="inquire-btn">Inquire via WhatsApp</a>
+                </div>
+            </div>
+
+            <div class="product-card" data-aos="fade-up" data-aos-delay="400">
+                <div class="swiper product-swiper">
+                    <div class="swiper-wrapper">
+                        <div class="swiper-slide"><img src="assets/product_4.jpg" alt="Papier-Mâché Art"></div>
+                    </div>
+                    <div class="swiper-pagination"></div>
+                </div>
+                <div class="product-info">
+                    <div class="product-category">Heritage Art</div>
+                    <div class="product-title">Traditional Papier-Mâché</div>
+                    <a href="https://wa.me/919876543210?text=I'm%20interested%20in%20incorporating%20traditional%20Papier-Mâché%20into%20my%20design." target="_blank" class="inquire-btn">Inquire via WhatsApp</a>
+                </div>
+            </div>
+
+        </div>
+    </section>
+    <!-- Image Lightbox Modal -->
+    <div id="image-modal" class="modal">
+        <span class="close-modal">&times;</span>
+        <img class="modal-content" id="modal-img">
+    </div>
+
     <a href="https://wa.me/919876543210" class="whatsapp-float" target="_blank" data-aos="zoom-in" data-aos-delay="500">
         <span>💬 Chat With Us</span>
     </a>
 
-    <!-- Scripts -->
     <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/pannellum@2.5.6/build/pannellum.js"></script>
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
     <script src="script.js"></script>
 </body>
 </html>
