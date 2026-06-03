@@ -344,58 +344,123 @@ nav a:hover { color: #d4af37; } /* Luxury Champagne Gold */
 /* Mobile Responsiveness */
 @media (max-width: 768px) {
     /* 1. Header & Navigation Fixes */
-        header { 
-                flex-direction: column; /* Stacks logo on top of menu */
-                        padding: 15px 5%; 
-                                gap: 12px;
-                                    }
-                                        .logo { 
-                                                justify-content: center; 
-                                                    }
-                                                        .logo span { 
-                                                                font-size: 1.3rem; 
-                                                                        white-space: nowrap; /* Forces the brand name to stay on one line */
-                                                                            }
+     header { 
+     flex-direction: column; /* Stacks logo on top of menu */
+    padding: 15px 5%; 
+    gap: 12px;
+                }
+  .logo { 
+         justify-content: center; 
+        }
+         .logo span { 
+         font-size: 1.3rem; 
+         white-space: nowrap; /* Forces the brand name to stay on one line */
+         }
                                                                                 
-                                                                                    /* 2. Menu Links styled as neat touch-friendly pills */
-                                                                                        nav {
-                                                                                                display: flex;
-                                                                                                        flex-wrap: wrap; /* Allows links to naturally drop to the next line */
-                                                                                                                justify-content: center;
+   /* 2. Menu Links styled as neat touch-friendly pills */
+       nav {
+      display: flex;
+     flex-wrap: wrap; /* Allows links to naturally drop to the next line */
+      justify-content: center;
                                                                                                                         gap: 8px;
-                                                                                                                            }
-                                                                                                                                nav a { 
-                                                                                                                                        margin-left: 0; 
-                                                                                                                                                font-size: 0.8rem; 
-                                                                                                                                                        padding: 6px 12px;
-                                                                                                                                                                background: rgba(255, 255, 255, 0.08); /* Subtle background so they look like buttons */
-                                                                                                                                                                        border-radius: 20px;
-                                                                                                                                                                                border: 1px solid rgba(255, 255, 255, 0.1);
-                                                                                                                                                                                    }
-
-                                                                                                                                                                                        /* 3. Hero Section Spacing */
-                                                                                                                                                                                            .hero { height: auto; min-height: 85vh; padding-top: 140px; }
-                                                                                                                                                                                                .hero h1 { font-size: 2.2rem; }
+       }
+     nav a { 
+         margin-left: 0; 
+          font-size: 0.8rem; 
+           background: rgba(255, 255, 255, 0.08); /* Subtle background so they look like buttons */
+           border-radius: 20px;
+             border: 1px solid rgba(255, 255, 255, 0.1);
+                                        }
+  /* 3. Hero Section Spacing */
+    .hero { height: auto; min-height: 85vh; padding-top: 140px; }
+  .hero h1 { font-size: 2.2rem; }
                                                                                                                                                                                                     
-                                                                                                                                                                                                        /* 4. Fix the oversized WhatsApp Button */
-                                                                                                                                                                                                            .whatsapp-float { 
-                                                                                                                                                                                                                    bottom: 20px; 
-                                                                                                                                                                                                                            right: 20px; 
-                                                                                                                                                                                                                                    padding: 10px 16px; 
-                                                                                                                                                                                                                                            font-size: 0.85rem; 
-                                                                                                                                                                                                                                                }
+       /* 4. Fix the oversized WhatsApp Button */
+     .whatsapp-float { 
+     bottom: 20px; 
+      right: 20px; 
+       padding: 10px 16px; 
+       font-size: 0.85rem; 
+      }
 
-                                                                                                                                                                                                                                                    /* 5. Existing Element Sizing */
-                                                                                                                                                                                                                                                        #panorama-viewer { height: 400px; }
-                                                                                                                                                                                                                                                            .pan-image { height: 450px; }
-                                                                                                                                                                                                                                                                .catalog-grid { grid-template-columns: 1fr; }
-                                                                                                                                                                                                                                                                    
-                                                                                                                                                                                                                                                                        /* 6. Info bar stack */
-                                                                                                                                                                                                                                                                            .hero-bottom-bar {
-                                                                                                                                                                                                                                                                                    flex-direction: column;
-                                                                                                                                                                                                                                                                                            gap: 12px;
-                                                                                                                                                                                                                                                                                                    padding: 15px 5%;
-                                                                                                                                                                                                                                                                                                            background: rgba(10, 10, 12, 0.95);
-                                                                                                                                                                                                                                                                                                                }
-                                                                                                                                                                                                                                                                                                                    .info-item { font-size: 0.75rem; }
-                                                                                                                                                                                                                                                                                                                    }
+   /* 5. Existing Element Sizing */
+     #panorama-viewer { height: 400px; }
+.pan-image { height: 450px; }
+     .catalog-grid { grid-template-columns: 1fr; }
+                                                                                                                                                                   
+    /* 6. Info bar stack */
+     .hero-bottom-bar {
+       flex-direction: column;
+     gap: 12px;
+                 padding: 15px 5%;
+  background: rgba(10, 10, 12, 0.95);
+     }
+  .info-item { font-size: 0.75rem; }
+  }
+
+  /* 360 Thumbnail Gallery Styling */
+.pano-gallery {
+    display: flex;
+    gap: 15px;
+    margin-top: 20px;
+    overflow-x: auto; /* Allows smooth scrolling if you add even more rooms later */
+    padding-bottom: 10px;
+    scrollbar-width: none; /* Hides scrollbar on Firefox */
+    -ms-overflow-style: none; /* Hides scrollbar on IE/Edge */
+}
+.pano-gallery::-webkit-scrollbar { 
+    display: none; /* Hides scrollbar on Chrome/Safari */
+}
+
+.pano-thumb {
+    flex: 0 0 220px; /* Rigid rectangular shape */
+    height: 120px;
+    border-radius: 6px;
+    overflow: hidden;
+    position: relative;
+    cursor: pointer;
+    border: 2px solid transparent;
+    transition: all 0.3s ease;
+    background: #1a1a1c;
+}
+.pano-thumb:hover { 
+    transform: translateY(-3px); 
+}
+
+/* Highlights the currently active 360 photo with a gold border */
+.pano-thumb.active { 
+    border-color: #d4af37; 
+}
+
+.pano-thumb img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    opacity: 0.6;
+    transition: opacity 0.3s ease;
+}
+.pano-thumb.active img, .pano-thumb:hover img { 
+    opacity: 1; 
+}
+
+.pano-thumb span {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background: rgba(10, 10, 12, 0.85);
+    color: #ffffff;
+    font-size: 0.85rem;
+    padding: 6px;
+    text-align: center;
+    font-weight: 500;
+    letter-spacing: 1px;
+}
+
+/* Mobile responsive adjustments for the thumbnails */
+@media (max-width: 768px) {
+    .pano-thumb { 
+        flex: 0 0 160px; 
+        height: 100px; 
+    }
+}

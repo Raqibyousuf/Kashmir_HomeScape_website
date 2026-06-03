@@ -1,13 +1,36 @@
 document.addEventListener("DOMContentLoaded", function() {
-    
-    // 1. Initialize 3D Viewer (Updated to your mainpic.jpg)
-    pannellum.viewer('panorama-viewer', {
+    // 1. Initialize 3D Viewer Engine with Default Photo
+    let currentViewer = pannellum.viewer('panorama-viewer', {
         "type": "equirectangular",
         "panorama": "assets/mainpic.jpg", 
         "autoLoad": true,
         "compass": false
     });
 
+    // 1.5 Handle Thumbnail Gallery Clicks
+    const panoThumbs = document.querySelectorAll('.pano-thumb');
+    
+    panoThumbs.forEach(thumb => {
+        thumb.addEventListener('click', function() {
+            // Remove 'active' gold border from all thumbnails
+            panoThumbs.forEach(t => t.classList.remove('active'));
+            
+            // Add 'active' gold border to the clicked thumbnail
+            this.classList.add('active');
+            
+            // Find the 360 image file path from the clicked thumbnail's data attribute
+            const newPano = this.getAttribute('data-pano');
+            
+            // Safely destroy the old room instance and load the new 360 room
+            currentViewer.destroy();
+            currentViewer = pannellum.viewer('panorama-viewer', {
+                "type": "equirectangular",
+                "panorama": newPano, 
+                "autoLoad": true,
+                "compass": false
+            });
+        });
+    });
     // 2. Initialize Animate On Scroll (AOS)
     AOS.init({
         once: true, 
